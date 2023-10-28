@@ -2,8 +2,9 @@
 
 ## Equipe
 
-Ten Guilherme da Silva **Pereira** - 22104
-Al Maria **Eduarda Sandre** Marques - 21042
+Ten Guilherme da Silva *Pereira* - 22104
+
+Al Maria *Eduarda Sandre* Marques - 21042
 
 ## Conceito
 
@@ -20,10 +21,11 @@ O programa oferece uma funcionalidade valiosa, permitindo ao usuário escolher e
 
 A calculadora de transistor oferece uma interface intuitiva que facilita a navegação do usuário de maneira eficaz. Na tela inicial, o usuário escolhe o tipo de polarização e a atividade desejada, seja um projeto ou uma análise. Após a seleção, o usuário é direcionado para uma nova página, onde tem à sua disposição uma série de recursos para auxiliá-lo no processo.
 
-*imagem
+![](Images/Pag1Tutorial.jpeg "Pag1")
 
 A partir desse ponto, o usuário pode optar por voltar à tela anterior ou inserir os dados necessários para realizar os cálculos. Os valores a serem inseridos são selecionados a partir de uma lista presente em uma caixa de seleção, tornando o processo de entrada de informações simples e prático. Após a introdução dos valores os resultados calculados são imediatamente exibidos em suas respectivas caixas, proporcionando ao usuário uma resposta rápida e precisa.
 
-*imagem
+![](Images/Pag2Tutorial.jpeg "Pag2")
+![](Images/Pag3Tutorial.jpeg "Pag3")
 
 Além disso, o usuário tem a flexibilidade de retornar à página anterior a qualquer momento durante esse processo, garantindo uma experiência de uso fluida e amigável. A calculadora de transistor se destaca por sua acessibilidade e facilidade de uso, tornando a análise e o projeto de circuitos eletrônicos mais eficientes e eficazes para os seus usuários.
