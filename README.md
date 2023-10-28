@@ -22,8 +22,8 @@ A calculadora de transistor oferece uma interface intuitiva que facilita a naveg
 
 *imagem
 
-A partir desse ponto, o usuário pode optar por voltar à tela anterior ou inserir os dados necessários para realizar os cálculos. Os valores a serem inseridos são selecionados a partir de uma lista presente em uma caixa de seleção, tornando o processo de entrada de informações simples e prático. Após a introdução dos valores, ao pressionar o botão "calcular", os resultados calculados são imediatamente exibidos em suas respectivas caixas, proporcionando ao usuário uma resposta rápida e precisa.
+A partir desse ponto, o usuário pode optar por voltar à tela anterior ou inserir os dados necessários para realizar os cálculos. Os valores a serem inseridos são selecionados a partir de uma lista presente em uma caixa de seleção, tornando o processo de entrada de informações simples e prático. Após a introdução dos valores os resultados calculados são imediatamente exibidos em suas respectivas caixas, proporcionando ao usuário uma resposta rápida e precisa.
 
 *imagem
 
-Vale ressaltar que qualquer modificação nos valores inseridos só terá impacto nos cálculos após o acionamento do botão "calcular". Além disso, o usuário tem a flexibilidade de retornar à página anterior a qualquer momento durante esse processo, garantindo uma experiência de uso fluida e amigável. A calculadora de transistor se destaca por sua acessibilidade e facilidade de uso, tornando a análise e o projeto de circuitos eletrônicos mais eficientes e eficazes para os seus usuários.
+Além disso, o usuário tem a flexibilidade de retornar à página anterior a qualquer momento durante esse processo, garantindo uma experiência de uso fluida e amigável. A calculadora de transistor se destaca por sua acessibilidade e facilidade de uso, tornando a análise e o projeto de circuitos eletrônicos mais eficientes e eficazes para os seus usuários.
