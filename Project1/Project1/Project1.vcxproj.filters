@@ -23,5 +23,30 @@
     <ClInclude Include="MyForm.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="resource2.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Desktop\87626-200.ico">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="87626-200.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="87626-200.ico">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Arquivos de Recurso</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
