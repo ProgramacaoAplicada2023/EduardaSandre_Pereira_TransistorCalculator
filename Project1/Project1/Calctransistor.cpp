@@ -1,4 +1,4 @@
-#include "MyForm.h"
+#include "calctrans.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -6,6 +6,6 @@ using namespace System::Windows::Forms;
 int main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Project1::MyForm form;
+	Project1::calctrans form;
 	Application::Run(% form);
 }
