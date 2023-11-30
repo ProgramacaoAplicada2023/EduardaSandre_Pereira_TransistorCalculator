@@ -53,9 +53,18 @@ Ao clicar em um botão  duas vezes o programa irá te levar a parte do código r
 
 ![](Images/gui6.jpg "gui6")
 
+Para adicionar novos botões e funcionalidades  baste abrir a  "Caixa de Ferramentas":
+
+![](Images/gui7.jpg "gui7")
+
+Ao abrir a caixa de ferramenta , arraste os itens que queira implementar  e coloque na tela e ajuste a posição : 
+
+![](Images/gui8.jpg "gui8")
 
 
+Para editar o objeto, clique com o lado direito e vá em "Propriedades" e edite  os elementos que desejar: 
 
+![](Images/gui9.jpg "gui9")
 
 ## Tutorial de Uso do Aplicativo
 
