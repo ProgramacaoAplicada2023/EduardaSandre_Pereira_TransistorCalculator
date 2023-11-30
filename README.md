@@ -31,11 +31,27 @@ Após isso insira o link do repositório a ser importado e o diretório onde ser
 
 Prossiga com as opções de sua preferência até que o projeto seja importado obtendo a seguinte janela:
 
+![](Images/gui1.jpg "gui1")
 
 Caso não esteja aberta, vá em exibir e abra a guia do Gerenciador de Soluções :
 
+![](Images/gui2.jpg "gui2")
 
-Para iniciar a edição do código e da biblioteca gráfica clique duas vezes no
+Para iniciar a edição do código e da biblioteca gráfica clique duas vezes no arquivo "Calculadora Transistor.sln" : 
+
+![](Images/gui3.jpg "gui3")
+
+Aguarde carregar e clique "calctrans.h" para abrir a interface gráfica:
+
+![](Images/gui4.jpg "gui4")
+
+Com a interface aberta é possível modificar  e arrastar botões : 
+
+![](Images/gui5.jpg "gui5")
+
+Ao clicar em um botão  duas vezes o programa irá te levar a parte do código referente a este botão: 
+
+![](Images/gui6.jpg "gui6")
 
 
 
