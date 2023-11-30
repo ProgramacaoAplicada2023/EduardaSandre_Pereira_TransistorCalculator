@@ -17,7 +17,31 @@ Ter um programa que auxilie na análise e no projeto de circuitos com transistor
 
 O programa oferece uma funcionalidade valiosa, permitindo ao usuário escolher entre dois tipos de polarização de transistores. Selecione um tipo, a opção projeto e o ponto de polarização para o programa calcular as resistências com valores comerciais. Além disso, caso o usuário prefira, pode definir os valores de resistências e as tensões de entrada e o programa calculará  as correntes e tensões, simplificando assim o processo de projeto e análise de circuitos com transistores.
 
-## Tutorial
+## Como importar e modificar esse projeto ?
+
+Para importar esse projeto primeiro você precisa instalar a versão mais recente do Microsoft Visual Studio, e após isso  selecionar para que sejam baixados os complementes que permitem a edição de  código C++/CLR NETFramework 4.7.2. 
+
+Com o Visual Studio devidamente configurado, selecione a opção clonar um repositório: 
+
+![](Images/rep1.jpg "rep1")
+
+Após isso insira o link do repositório a ser importado e o diretório onde será armazenado : 
+
+![](Images/rep2.jpg "rep2")
+
+Prossiga com as opções de sua preferência até que o projeto seja importado obtendo a seguinte janela:
+
+
+Caso não esteja aberta, vá em exibir e abra a guia do Gerenciador de Soluções :
+
+
+Para iniciar a edição do código e da biblioteca gráfica clique duas vezes no
+
+
+
+
+
+## Tutorial de Uso do Aplicativo
 
 A calculadora de transistor oferece uma interface intuitiva que facilita a navegação do usuário de maneira eficaz. Na tela inicial, o usuário escolhe o tipo de polarização e a atividade desejada, seja um projeto ou uma análise. Após a seleção, o usuário é direcionado para uma nova página, onde tem à sua disposição uma série de recursos para auxiliá-lo no processo.
 
