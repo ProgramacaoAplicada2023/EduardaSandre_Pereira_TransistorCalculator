@@ -311,12 +311,12 @@ private: System::Windows::Forms::Label^ label22;
 
 		double findIe(int i) {
 			double Ie = ((beta[i] + 1) * ic[i]) / beta[i];
-			return Ie * 1000.0; 
+			return Ie * 1000.0;
 		}
 
 		double findIb(int i) {
 			double Ib = ic[i] / beta[i];
-			return Ib * 100000.0; 
+			return Ib * 1000000.0;
 		}
 
 
@@ -327,41 +327,41 @@ private: System::Windows::Forms::Label^ label22;
 
 			return Vcb;
 		}
-		
+
 		double findRe(int i) {
 
-				double Re = (5 * vbe[i] * beta[i]) / ((beta[i] + 1) * ic[i]);
-				Re = findClosestE12(Re);
+			double Re = (5 * vbe[i] * beta[i]) / ((beta[i] + 1) * ic[i]);
+			Re = findClosestE12(Re);
 
-				return Re/1000;
+			return Re / 1000;
 
 		}
 
 		double findRc(int i, int j) {
 
-				double Rc = ((vcc[j] - 5 - 5 * vbe[i]) / ic[i]);
-				Rc = findClosestE12(Rc);
+			double Rc = ((vcc[j] - 5 - 5 * vbe[i]) / ic[i]);
+			Rc = findClosestE12(Rc);
 
-				return Rc/1000;
+			return Rc / 1000;
 
-		
+
 		}
 
-		
+
 		double findRx(int i, int j) {
-		
-				double Rx = (vbe[i] * beta[i] * vcc[j]) / (ic[i] * (2 * vcc[j] - 13 * vbe[i]));
-				Rx = findClosestE12(Rx);
 
-				return Rx/1000;
+			double Rx = (vbe[i] * beta[i] * vcc[j]) / (ic[i] * (2 * vcc[j] - 13 * vbe[i]));
+			Rx = findClosestE12(Rx);
+
+			return Rx / 1000;
 
 		}
-		
-		double findRy(int i, int j) {
-				double Ry = (beta[i] * vcc[j]) / (13 * ic[i]);
-				Ry = findClosestE12(Ry);
 
-				return Ry/1000;
+		double findRy(int i, int j) {
+			double Ry = (beta[i] * vcc[j]) / (13 * ic[i]);
+			Ry = findClosestE12(Ry);
+
+			return Ry / 1000;
 
 		}
 
@@ -394,14 +394,13 @@ private: System::Windows::Forms::Label^ label22;
 			double Ic;
 
 			if (Vce > 0.7) {
-				Ib = (Vbb - 0, 7) / Rb;
+				Ib = (Vbb - 0.7) / Rb;
 
 				Vce = Vcc - 190 * Ib * Rc;
 				return 1;
 			}
 			else if (Ib > 0.0) {
-				Ic = (Vcc - 0, 2) / Rc;
-				Ib = (Vbb - 0, 72) / Rb;
+				Ib = (Vbb - 0.72) / Rb;
 				return 2;
 			}
 			else {
@@ -417,12 +416,12 @@ private: System::Windows::Forms::Label^ label22;
 			double Ic;
 
 			if (Vce > 0.7) {
-				Vce = Vcc - (Rc + Re * 191 / 190) * (190 * Rx * Vcc - 133 * (Rx + Ry)) / (191 * (Rx + Ry) * Re + Rx * Ry);
+				Ic = 19 * (10 * Rx * Vcc - 7 * (Rx + Ry) )/ (191 * Re * (Rx + Ry) + Rx * Ry);
+				Vce = Vcc - Rc * Ic - Re * Ic * 191 / 190;
 				return 1;
 			}
 			else if (Ib > 0.0) {
-				Ic = (190 * Rx * Vcc - 133 * (Rx + Ry)) / (191 * (Rx + Ry) * Re + Rx * Ry);
-				Ib = ((Vcc * Rx - 0.72 * (Rx + Ry)) * (Rc + Re) - Re * (Rx + Ry) * (Vcc - 0.2)) / (Rx * Ry * (Rc + Re) + Rc * Re * (Rx + Ry));
+				Ib = (Vcc * 25 * (Rc * Rx - Re * Ry) - 18 * Rc * (Rx + Ry) - 13 * Re * (Rx + Ry)) / 25 * (Re * Rc * (Rx + Ry) + Rx * Ry * (Re + Rc));
 				return 2;
 			}
 			else {
@@ -435,11 +434,11 @@ private: System::Windows::Forms::Label^ label22;
 			double Ib;
 			if (pol == 1)
 			{
-				Ib = (190 * Rx * Vcc - 133 * (Rx + Ry)) / ((191 * (Rx + Ry) * Re + Rx * Ry) * 190);
+				Ib = (10 * Rx * Vcc - 7 * (Rx + Ry)) / (10 * (191 * Re * (Rx + Ry) + Rx * Ry));
 			}
 			else if (pol == 2)
 			{
-				Ib = ((Vcc * Rx - 0.72 * (Rx + Ry)) * (Rc + Re) - Re * (Rx + Ry) * (Vcc - 0.2)) / (Rx * Ry * (Rc + Re) + Rc * Re * (Rx + Ry));
+				Ib = (Vcc * 25 * (Rc * Rx - Re * Ry) - 18 * Rc * (Rx + Ry) - 13 * Re * (Rx + Ry)) / 25 * (Re * Rc * (Rx + Ry) + Rx * Ry * (Re + Rc));
 			}
 			else
 			{
@@ -449,16 +448,16 @@ private: System::Windows::Forms::Label^ label22;
 		}
 
 		double getIc(double Rx, double Ry, double Rc, double Re, double Vcc, double pol) {
-			
+
 			double Ic;
 
 			if (pol == 1)
 			{
-				Ic = (190 * Rx * Vcc - 133 * (Rx + Ry)) / (191 * (Rx + Ry) * Re + Rx * Ry);
+				Ic = 19 * (10 * Rx * Vcc - 7 * (Rx + Ry)) / (191 * Re * (Rx + Ry) + Rx * Ry);
 			}
 			else if (pol == 2)
 			{
-				Ic = (Vcc - 0.2 - Re * ((Vcc * Rx - 0.72 * (Rx + Ry)) * (Rc + Re) - Re * (Rx + Ry) * (Vcc - 0.2)) / (Rx * Ry * (Rc + Re) + Rc * Re * (Rx + Ry))) / (Rc + Re);
+				Ic = (Vcc * 25 * Ry * (Rx + Re) - 5 * Rx * Ry + 13 * Re * (Rx + Ry)) / 25 * (Re * Rc * (Rx + Ry) + Rx * Ry * (Re + Rc));
 			}
 			else
 			{
@@ -468,17 +467,17 @@ private: System::Windows::Forms::Label^ label22;
 		}
 
 		double getIe(double Rx, double Ry, double Rc, double Re, double Vcc, double pol) {
-			
+
 			double Ie;
 
 			if (pol == 1)
 			{
-				Ie = 191 * (190 * Rx * Vcc - 133 * (Rx + Ry)) / ((191 * (Rx + Ry) * Re + Rx * Ry) * 190);
-				
+				Ie = 191 * (10 * Rx * Vcc - 7 * (Rx + Ry) )/ (10 * (191 * Re * (Rx + Ry) + Rx * Ry));
+
 			}
 			else if (pol == 2)
 			{
-				Ie = (Vcc - 0.2 + Rc * ((Vcc * Rx - 0.72 * (Rx + Ry)) * (Rc + Re) - Re * (Rx + Ry) * (Vcc - 0.2)) / (Rx * Ry * (Rc + Re) + Rc * Re * (Rx + Ry))) / (Rc + Re);
+				Ie = (Vcc * 25 * (Rc * Rx + Ry * Re) - 5 * Rx * Ry - 18 * Rc * (Rx + Ry)) / 25 * (Re * Rc * (Rx + Ry) + Rx * Ry * (Re + Rc));
 				return Ie;
 			}
 			else
@@ -486,7 +485,7 @@ private: System::Windows::Forms::Label^ label22;
 				Ie = 0.0;
 				return Ie;
 			}
-			
+
 		}
 
 		double getVbe(double Rx, double Ry, double Rc, double Re, double Vcc, double pol) {
@@ -507,7 +506,7 @@ private: System::Windows::Forms::Label^ label22;
 				Vbe = (Vcc * Rx) / (Rx + Ry);
 				return Vbe;
 			}
-			
+
 		}
 
 		double getVce(double Rx, double Ry, double Rc, double Re, double Vcc, double pol) {
@@ -527,7 +526,7 @@ private: System::Windows::Forms::Label^ label22;
 				Vce = Vcc;
 				return Vce;
 			}
-			
+
 		}
 
 		double getVcb(double Rx, double Ry, double Rc, double Re, double Vcc, double pol) {
@@ -535,38 +534,38 @@ private: System::Windows::Forms::Label^ label22;
 
 			if (pol == 1)
 			{
-			Vcb = Vcc - (Rc + Re * 191 / 190) * (190 * Rx * Vcc - 133 * (Rx + Ry)) / (191 * (Rx + Ry) * Re + Rx * Ry) - 0.7;
-			return Vcb;
+				Vcb = Vcc - (Rc + Re * 191 / 190) * (190 * Rx * Vcc - 133 * (Rx + Ry)) / (191 * (Rx + Ry) * Re + Rx * Ry) - 0.7;
+				return Vcb;
 			}
 			else if (pol == 2)
 			{
-			Vcb = -0.52;
-			return Vcb;
+				Vcb = -0.52;
+				return Vcb;
 			}
 			else
 			{
-			Vcb = (Vcc - Vcc * Rx) / (Rx + Ry);
-			return Vcb;
+				Vcb = (Vcc * Ry) / (Rx + Ry);
+				return Vcb;
 			}
-			
+
 		}
 
-		double getIb2(double Rb, double Rc, double Vcc,double Vbb, double pol) {
+		double getIb2(double Rb, double Rc, double Vcc, double Vbb, double pol) {
 			double Ib;
 			if (pol == 1)
 			{
-			Ib = (Vbb - 0.7) / Rb;
-			return Ib;
+				Ib = (Vbb - 0.7) / Rb;
+				return Ib;
 			}
 			else if (pol == 2)
 			{
-			Ib = (Vbb - 0.72) / Rb;
-			return Ib;
+				Ib = (Vbb - 0.72) / Rb;
+				return Ib;
 			}
 			else
 			{
-			Ib = 0.0;
-			return Ib;
+				Ib = 0.0;
+				return Ib;
 			}
 		}
 
@@ -574,20 +573,20 @@ private: System::Windows::Forms::Label^ label22;
 			double Ic;
 			if (pol == 1)
 			{
-			Ic = 190 * (Vbb - 0.7) / Rb;
-			return Ic;
+				Ic = 190 * (Vbb - 0.7) / Rb;
+				return Ic;
 			}
 			else if (pol == 2)
 			{
-			Ic = (Vcc - 0.2) / Rc;
-			return Ic;
+				Ic = (Vcc - 0.2) / Rc;
+				return Ic;
 			}
 			else
 			{
-			Ic = 0.0;
-			return Ic;
+				Ic = 0.0;
+				return Ic;
 			}
-			
+
 		}
 
 		double getIe2(double Rb, double Rc, double Vcc, double Vbb, double pol) {
@@ -595,85 +594,83 @@ private: System::Windows::Forms::Label^ label22;
 			double Vbe;
 			if (pol == 1)
 			{
-			Vbe = 191 * (Vbb - 0.7) / Rb;
-			return Ie;
+				Ie = 191 * (Vbb - 0.7) / Rb;
+				return Ie;
 			}
 			else if (pol == 2)
 			{
-			Ie = (Vbb - 0.72) / Rb + (Vcc - 0.2) / Rc;
-			return Ie;
+				Ie = (Vbb - 0.72) / Rb + (Vcc - 0.2) / Rc;
+				return Ie;
 			}
 			else
 			{
-			Ie = 0.0;
-			return Ie;
+				Ie = 0.0;
+				return Ie;
 			}
-			
+
 		}
 
 		double getVbe2(double Rb, double Rc, double Vcc, double Vbb, double pol) {
-			
+
 			double Vbe;
 
 			if (pol == 1)
 			{
-			Vbe = 0.7;
-			return Vbe;
+				Vbe = 0.7;
+				return Vbe;
 			}
 			else if (pol == 2)
 			{
-			Vbe = 0.72;
-			return Vbe;
+				Vbe = 0.72;
+				return Vbe;
 			}
 			else
 			{
-			Vbe = Vbb;
-			return Vbe;
+				Vbe = Vbb;
+				return Vbe;
 			}
-			
+
 		}
 
 		double getVce2(double Rb, double Rc, double Vcc, double Vbb, double pol) {
 			double Vce;
 			if (pol == 1)
 			{
-			Vce = Vcc - Re * 190 * (Vbb - 0.7) / Rb;
-			return Vce;
+				Vce = Vcc - Rc * 190 * (Vbb - 0.7) / Rb;
+				return Vce;
 			}
 			else if (pol == 2)
 			{
-			Vce = 0.2;
-			return Vce;
+				Vce = 0.2;
+				return Vce;
 			}
 			else
 			{
-			Vce = Vcc;
-			return Vce;
+				Vce = Vcc;
+				return Vce;
 			}
-			
+
 		}
 
 		double getVcb2(double Rb, double Rc, double Vcc, double Vbb, double pol) {
 			double Vcb;
 			if (pol == 1)
 			{
-			Vcb = Vcc - Re * 190 * (Vbb - 0.7) / Rb - 0.7;
-			return Vcb;
+				Vcb = Vcc - Rc * 190 * (Vbb - 0.7) / Rb - 0.7;
+				return Vcb;
 			}
 			else if (pol == 2)
 			{
-			Vcb = -0.52;
-			return Vcb;
+				Vcb = -0.52;
+				return Vcb;
 			}
 			else
 			{
-			Vcb = Vcc - Vbb;
-			return Vcb;
+				Vcb = Vcc - Vbb;
+				return Vcb;
 			}
-			
+
 		}
-
-
 
 
 
@@ -2234,11 +2231,11 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(484, 503);
+			this->Controls->Add(this->menuprincipal);
+			this->Controls->Add(this->projpol2);
 			this->Controls->Add(this->anapol2);
 			this->Controls->Add(this->anapol1);
 			this->Controls->Add(this->projpol1);
-			this->Controls->Add(this->menuprincipal);
-			this->Controls->Add(this->projpol2);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MinimumSize = System::Drawing::Size(388, 447);
 			this->Name = L"calctrans";
@@ -2666,9 +2663,9 @@ private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^
 		this->label42->Text = L"Região de Corte";
 	}
 	
-	this->label27->Text = System::Convert::ToString(getIb2(Rc,Rb,Vcc,Vbb,Pol)) + L"mA";
-	this->label28->Text = System::Convert::ToString(getIc2(Rb, Rc, Vcc, Vbb, Pol)) + L"mA";
-	this->label31->Text = System::Convert::ToString(getIe2(Rb, Rc, Vcc, Vbb, Pol)) + L"mA";
+	this->label27->Text = System::Convert::ToString(getIb2(Rb,Rc,Vcc,Vbb,Pol)) + L"A";
+	this->label28->Text = System::Convert::ToString(getIc2(Rb, Rc, Vcc, Vbb, Pol)) + L"A";
+	this->label31->Text = System::Convert::ToString(getIe2(Rb, Rc, Vcc, Vbb, Pol)) + L"A";
 	this->label32->Text = System::Convert::ToString(getVbe2(Rb, Rc, Vcc, Vbb, Pol)) + L"V";
 	this->label34->Text = System::Convert::ToString(getVce2(Rb, Rc, Vcc, Vbb, Pol)) + L"V";
 	this->label35->Text = System::Convert::ToString(getVcb2(Rb, Rc, Vcc, Vbb, Pol)) + L"V";
@@ -2972,9 +2969,9 @@ private: System::Void button5_Click_1(System::Object^ sender, System::EventArgs^
 		this->label65->Text = L"Região de Corte";
 	}
 
-	this->label77->Text = System::Convert::ToString(getIb(Rx,Ry,Rc,Re, Vcc,Pol)) + L"mA";
-	this->label76->Text = System::Convert::ToString(getIc(Rx, Ry, Rc, Re, Vcc, Pol)) + L"mA";
-	this->label73->Text = System::Convert::ToString(getIe(Rx, Ry, Rc, Re, Vcc, Pol)) + L"mA";
+	this->label77->Text = System::Convert::ToString(getIb(Rx,Ry,Rc,Re, Vcc,Pol)) + L"A";
+	this->label76->Text = System::Convert::ToString(getIc(Rx, Ry, Rc, Re, Vcc, Pol)) + L"A";
+	this->label73->Text = System::Convert::ToString(getIe(Rx, Ry, Rc, Re, Vcc, Pol)) + L"A";
 	this->label72->Text = System::Convert::ToString(getVbe(Rx, Ry, Rc, Re, Vcc, Pol)) + L"V";
 	this->label70->Text = System::Convert::ToString(getVce(Rx, Ry, Rc, Re, Vcc, Pol)) + L"V";
 	this->label69->Text = System::Convert::ToString(getVcb(Rx, Ry, Rc, Re, Vcc, Pol)) + L"V";
