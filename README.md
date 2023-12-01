@@ -66,6 +66,10 @@ Para editar o objeto, clique com o lado direito e vá em "Propriedades" e edite 
 
 ![](Images/gui9.jpg "gui9")
 
+Para compilar o código e executar o programa basta clicar no botão de seta verde " Depurador Local do Windows"
+
+![](Images/gui10.jpg "gui10")
+
 ## Tutorial de Uso do Aplicativo
 
 A calculadora de transistor oferece uma interface intuitiva que facilita a navegação do usuário de maneira eficaz. Na tela inicial, o usuário escolhe o tipo de polarização e a atividade desejada, seja um projeto ou uma análise. Após a seleção, o usuário é direcionado para uma nova página, onde tem à sua disposição uma série de recursos para auxiliá-lo no processo.
